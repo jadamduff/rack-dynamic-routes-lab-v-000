@@ -1,14 +1,12 @@
 class Application
 
-  @@item = []
-
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
     if req.path.match("/items/")
       item_title = req.path.split("/item/").last
-      @@item.each do |x|
+      @@items.each do |x|
         if x.name == item_title
           resp.write "#{x.price}"
         else
