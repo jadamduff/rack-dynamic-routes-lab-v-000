@@ -1,4 +1,4 @@
-class application
+class Application
 
   @@item = Item.all_instances
 
