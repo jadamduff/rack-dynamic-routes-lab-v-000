@@ -9,11 +9,10 @@ class Application
       @@items.each do |x|
         if x.name == item_title
           resp.write "#{x.price}"
-        else
-          resp.write "Item not found"
-          resp.status 400
         end
       end
+      resp.write "Item not found"
+      resp.status 400
     else
       resp.status 404
     end
