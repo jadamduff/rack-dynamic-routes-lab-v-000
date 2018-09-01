@@ -5,9 +5,10 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
-      item_title = req.path.split("/item/").last
-      if @@items.find {|x| x.name == item_title}
-        resp.write @@items.find {|x| x.name == item_title}.price
+      item_title = req.path.split("/items/").last
+      song = @@items.find {|x| x.name == item_title}
+      if song
+        resp.write song.price
       else
         resp.write "Item not found"
         resp.status = 400
