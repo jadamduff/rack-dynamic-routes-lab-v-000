@@ -8,7 +8,7 @@ class Application
       item_title = req.path.split("/item/").last
       @@items.each do |x|
         if x.name == item_title
-          resp.write "#{x.price}"
+          resp.write x.price
         end
       end
       resp.write "Item not found"
