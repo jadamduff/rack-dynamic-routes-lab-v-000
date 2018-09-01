@@ -6,7 +6,7 @@ class Application
 
     if req.path.match("/items/")
       item_title = req.path.split("/item/").last
-      Song.item.each do |x|
+      @@item.each do |x|
         if x.name == item_title
           resp.write "#{x.price}"
         else
